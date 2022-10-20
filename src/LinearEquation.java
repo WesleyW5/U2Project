@@ -42,6 +42,8 @@ public class LinearEquation{
                 return "Original Coordinates: " + x1 + ", " + y1 + "  " + x2 + ", " + y2 + "\n" + "Linear Equation: " + equation() + "\n" + "Slope: " + slope() + "\n" + "Y-intercept: " + yIntercept() + "\n" + "Distance: " + distance();
             }
 
+
+
 }
 
 
