@@ -35,7 +35,7 @@ public class LinearEquation{
 
             public double roundedToHundredth ( double toRound){
 
-                return Math.round(toRound * 100) / 100;
+                return (Math.round(toRound * 100)) / 100;
             }
 
             public String lineInfo () {
