@@ -5,8 +5,11 @@ public class LinearEquation{
         private int x2;
         private int y2;
 
-        public LinearEquation(int x1, int y1, int x2, int y2) {
-
+        public LinearEquation(int X1, int Y1, int X2, int Y2) {
+            x1 = X1;
+            y1 = Y1;
+            x2 = X2;
+            y2 = Y2;
         }
 
 
@@ -17,31 +20,32 @@ public class LinearEquation{
             }
 
             public double yIntercept () {
-                double intercept = roundedToHundredth(y1 - x1 * Math.abs(slope()));
-                return x1 + intercept;
+               double intercept = y1 - slope() * x1;
+               return intercept;
             }
 
             public double slope () {
-                return roundedToHundredth((y2 - y1) / (x2 - x1));
-            }
+                    return roundedToHundredth((double) (y2 - y1) / (x2 - x1));
+                }
+
 
             public String equation () {
-                return "y = " + "-" + Math.abs(slope()) + "x" + " + " + " yIntercept";
+                return "y = " + "-" + slope() + "x" + " + " +  yIntercept();
             }
 
             public String coordinateForX ( double xValue){
-                return "xValue = " + xValue + "Coordinates: " + xValue + ", " + xValue * slope();
+                return "xValue = " + xValue + " Coordinates: " + xValue + ", " + (xValue * slope() + yIntercept()) ;
             }
 
             public double roundedToHundredth ( double toRound){
-
-                return (Math.round(toRound * 100)) / 100;
+            double temp = toRound * 100;
+            double temp2 = Math.round(temp);
+            return temp2 / 100 ;
             }
 
             public String lineInfo () {
-                return "Original Coordinates: " + x1 + ", " + y1 + "  " + x2 + ", " + y2 + "\n" + "Linear Equation: " + equation() + "\n" + "Slope: " + slope() + "\n" + "Y-intercept: " + yIntercept() + "\n" + "Distance: " + distance();
+                return "Original Coordinates: (" + x1 + ", " + y1 + ")" + "    (" + x2 + ", " + y2 + ")" + "\n" + "Equation: " + equation() + "\n" + "Slope: " + slope() + "\n" + "Y-intercept: " + yIntercept() + "\n" + "Distance: " + distance();
             }
-
 
 
 }
