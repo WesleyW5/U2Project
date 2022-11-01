@@ -30,8 +30,38 @@ public class LinearEquation{
 
 
             public String equation () {
-                return "y = " + "-" + slope() + "x" + " + " +  yIntercept();
-            }
+                int numerator = y2 - y1;
+                int denominator = x2 - x1;
+
+                String slope = numerator + "/" + denominator;
+
+                if ((numerator / denominator) % 1 == 0) {
+                    int wholeSlope = numerator / denominator;
+                    if (yIntercept() == 0) {
+                        return "y = " + wholeSlope + "x";
+                    } else if(yIntercept() < 0){
+                        return "y = " + wholeSlope + " - " + Math.abs(yIntercept());
+                    }
+                    return "y = " + wholeSlope + "x" + " + " + yIntercept();
+
+                }
+
+                if (numerator < 0 && denominator < 0) {
+                    slope = Math.abs(numerator) + "/" + Math.abs(denominator);
+                } else if (numerator < 0 && denominator > 0) {
+                    slope = numerator + "/" + Math.abs(denominator);
+                } else if (numerator > 0 && denominator < 0) {
+                    slope = "-" + numerator + "/" + Math.abs(denominator);
+                }
+
+
+                if (yIntercept() > 0) {
+                    return "y = " + slope + "x" + " + " + yIntercept();
+                } else if(yIntercept() == 0){
+                    return "y = " + slope + "x";
+                } else
+                    return "y = " + slope + "x" + " - " + Math.abs(yIntercept());
+                }
 
             public String coordinateForX ( double xValue){
                 return "xValue = " + xValue + " Coordinates: " + xValue + ", " + (xValue * slope() + yIntercept()) ;
